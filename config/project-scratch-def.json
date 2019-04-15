@@ -1,0 +1,10 @@
+{
+  "orgName": "Demo Company",
+  "edition": "Developer",
+  "features": ["MultiCurrency", "AuthorApex"],
+  "settings": {
+    "orgPreferenceSettings": {
+      "s1DesktopEnabled": true
+    }
+  }
+}

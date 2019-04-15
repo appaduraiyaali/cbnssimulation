@@ -1,0 +1,177 @@
+<apex:page controller="UpdateSub">
+    <apex:stylesheet value="{!URLFOR($Resource.datetimepickercss)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.datetimepicker)}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.CB_CSS)}"/>
+    <head>
+        <style>
+            .tablecls {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            .tablecls td {
+                padding: 8px;
+                text-align: left;
+                width:20%;
+            }
+            
+            .tablecls th {
+                padding: 8px;
+                text-align: left;
+                width:20%;
+            }
+            .cb-empty{
+                border: 1px solid;
+                border-color: #dae0ea;
+                color:#000;
+                font-style: italic;
+                font-size: 16px;
+                width: 50%;
+                margin-left: 100px;
+                margin-top: 50px;
+                padding: 30px;
+                border-radius: 10px;
+            }
+            .cb-empty-btn input[type="submit"]{
+                margin-top:16px;
+                background: #fff!important;
+                border:1px solid #dae0ea !important;
+                color:black !important;
+                border-radius: 5px !important;
+            }
+            .myclass{
+            width:200px;
+            }
+            
+            .nobordertext{
+            border: none;
+            background: transparent;
+            width:150px;
+            }
+            .cb-field-help{
+                text-align: left;
+                max-width: 270px;
+                margin: 6px 0;
+                font-style: italic;
+                color:#808080;
+            }
+            .cb-note{
+                max-width:500px;
+            }
+        </style>
+    </head>
+        <div class="cb-layout">
+            <apex:form >
+            <apex:outputText rendered="{!errObj.isErr}">  
+              <div class="cb-empty">
+                    
+                        {!errObj.err_msg}
+                        
+                        
+                           <div class="cb-empty-btn">
+                                <apex:commandButton value="back"/>
+                           </div> 
+                        
+                    
+               </div>
+            </apex:outputText>
+            <apex:pageBlock rendered="{!(!errObj.isErr)}">
+                <apex:pageBlockSection title="Change Subscription" collapsible="false">                
+                    
+                        <apex:outputPanel >
+                            <table class="tablecls">
+                              <tr>
+                                <td>Plan Name</td>
+                                <td >
+                                   <apex:outputPanel styleClass="requiredInput" layout="block" >
+                                     <apex:outputPanel styleClass="requiredBlock" layout="block" />
+                                     <apex:selectList value="{!oldPlan}" multiselect="false" size="1" id="pid" styleClass="myclass" style="width:280px">
+                                          <apex:selectOptions value="{!planOpts}" />                                                          
+                                     </apex:selectlist>
+                                     
+                                   </apex:outputpanel>
+                                </td>
+            
+                                <td style="width:60%"> 
+                                <apex:inputText id="planPriceCurrency" value="{!oldPlanCur}" styleClass="nobordertext" html-readonly="true" size="3"> </apex:inputText>   
+                                <apex:inputText id="planPriceText" size="10"  value="{!oldPlanPrice}" styleClass="nobordertext"/> 
+                                
+                                </td>
+                            </tr>
+                            
+                            <tr id='planQuantityTr'>
+                                <td >Quantity</td>
+                                <td >
+                                    <apex:outputPanel id="planQuantityPanel" styleClass="requiredInput" layout="block">
+                                        <apex:outputPanel styleClass="requiredBlock" layout="block" />
+                                        <apex:inputText value="{!oldPlanQuan}" id="pquan" styleClass="myclass"/>
+                                    </apex:outputpanel>
+                                </td>
+                                <td style="width:60%"></td>
+                            </tr>
+                            
+                            <tr id='planSetupCostTr'>
+                               
+                                <td >Setup Cost</td>
+                                <td >
+                                    <apex:outputPanel id="planSetupCost" styleClass="optionalInput" layout="block">
+                                        <apex:outputPanel styleClass="optionalInput" layout="block" />
+                                        <apex:inputText id="planSetupCurrency" styleClass="nobordertext" html-readonly="true" size="3"> </apex:inputText>   
+                                        <apex:inputText value="{!oldPlanSetUp}" id="planSetupCostText" styleClass="nobordertext"/>
+                                    </apex:outputpanel>
+                                </td>
+                                <td style="width:60%"></td>
+                            </tr>
+                            <tr>
+                                <td>Coupon Name</td>
+                                <td >
+                                   <apex:outputPanel styleClass="requiredInput" layout="block" >
+                                     <apex:outputPanel styleClass="requiredBlock" layout="block" />
+                                     <apex:selectList value="{!coupId}" multiselect="false" size="1" id="cid" styleClass="myclass" style="width:280px">
+                                          <apex:selectOptions value="{!coupenOptions}" />                                                          
+                                     </apex:selectlist>
+                                     
+                                   </apex:outputpanel>
+                                </td>
+                            </tr>    
+                            </table>
+                        </apex:outputPanel> 
+                            
+                    
+                        
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:pageblock rendered="{!(!errObj.isErr)}">
+                <apex:pageBlockSection title="Apply Changes">
+                     
+                </apex:pageBlockSection>
+            </apex:pageblock>
+            <apex:pageblock rendered="{!(!errObj.isErr)}">
+                <apex:pageBlockSection title="Invoicing options">
+                    <div style="margin-top:12px">
+                        If there are any charges for this subscription, you can either generate an invoice immediately, or add it to <a target="_blank" style="color:blue;text-decoration:none" href="https://www.chargebee.com/docs/unbilled-charges.html">unbilled charges</a> and invoice them later.                            
+                     </div>
+                     <table class="tablecls"> 
+                                     <tr>
+                                    <td>
+                                       <apex:outputPanel styleClass="optionalInput" layout="block" >
+                                 
+                                        <apex:selectRadio value="{!invNow}">
+                
+                                        <apex:selectOptions value="{!optionsInvoiceNow}"/>
+                                        </apex:selectRadio>
+                
+                
+                
+                                       </apex:outputpanel>                                              
+                                    </td>
+                                    <td style="width:30%"></td>
+                                </tr>       
+                           
+                     </table>
+                </apex:pageBlockSection>
+            </apex:pageblock>
+            </apex:form>
+        </div>
+</apex:page>

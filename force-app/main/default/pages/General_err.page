@@ -1,0 +1,6 @@
+<apex:page controller="GenError">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Error:</h1>
+  <apex:outputText >{!err}</apex:outputText>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>
