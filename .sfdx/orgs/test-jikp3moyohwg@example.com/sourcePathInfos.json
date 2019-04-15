@@ -32,16 +32,14 @@
     [
         "c:\\salesforce\\cbnssource\\force-app\\main\\default",
         {
+            "state": "u",
             "sourcePath": "c:\\salesforce\\cbnssource\\force-app\\main\\default",
             "isDirectory": true,
-            "size": 0,
-            "modifiedTime": 1555308792924,
-            "changeTime": 1555308792924,
-            "contentHash": "56e9ad6acf9b319944004c1a364b243002d396b0",
             "isMetadataFile": false,
-            "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "size": 0,
+            "modifiedTime": 1555312373339,
+            "changeTime": 1555312373339,
+            "contentHash": "be3c7445b83f14ae3a9571fefec868d5d10ea062"
         }
     ],
     [
@@ -167,16 +165,14 @@
     [
         "c:\\salesforce\\cbnssource\\force-app\\main\\default\\classes\\APIError.cls",
         {
+            "state": "u",
             "sourcePath": "c:\\salesforce\\cbnssource\\force-app\\main\\default\\classes\\APIError.cls",
             "isDirectory": false,
-            "size": 104,
-            "modifiedTime": 1555308786325,
-            "changeTime": 1555308786325,
-            "contentHash": "8bd67429132b2f1578ad840c9f12158b1e86d940",
             "isMetadataFile": false,
-            "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "size": 136,
+            "modifiedTime": 1555312373075,
+            "changeTime": 1555312373075,
+            "contentHash": "26d530fab18152968bf5868dfe0b677007da35a4"
         }
     ],
     [
@@ -7392,6 +7388,32 @@
             "state": "u",
             "isWorkspace": true,
             "isArtifactRoot": false
+        }
+    ],
+    [
+        "c:\\salesforce\\cbnssource\\force-app\\main\\default\\profiles\\Admin.profile-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "c:\\salesforce\\cbnssource\\force-app\\main\\default\\profiles\\Admin.profile-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 58864,
+            "modifiedTime": 1555312373661,
+            "changeTime": 1555312373661,
+            "contentHash": "a828a675d426587319b6533c8c260a569c367a34"
+        }
+    ],
+    [
+        "c:\\salesforce\\cbnssource\\force-app\\main\\default\\profiles",
+        {
+            "state": "u",
+            "sourcePath": "c:\\salesforce\\cbnssource\\force-app\\main\\default\\profiles",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1555312373658,
+            "changeTime": 1555312373658,
+            "contentHash": "dd4bc5d00d5b87ac9dcfa94ec543d354d095c25c"
         }
     ]
 ]
